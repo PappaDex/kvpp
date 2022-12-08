@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/plugins/bootstrap-4.6.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/fontawesome-free-5.15.4-web/css/all.min.css">
+    <title>OWP - LV5</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FC7A57;">
+        <a class="navbar-brand" href="index.html"><img src="img/vsmti_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Administracija</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <h1 class="display-3 text-center">Cities</h1>
+    <div class="container">
+      <!-- OVDJE IDE GUMB KOJI OTVARA MODAL ZA DODAVANJE PJESAMA -->
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Add City
+</button>
+
+
+      <!-- OVDJE IDE TABLICA ZA PRIKAZ cityE -->
+      <table class="table table-bordered table-dark" >
+        <thead id="cityid">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">City</th>
+            <th scope="col">Country</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="citytbody">
+         
+        </tbody>
+      </table>
+      
+      <!-- OVDJE IDE MODAL ZA DODAVANJE PJESAMA -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/action_page.php">
+                <label for="city">Name:</label><br>
+                <input type="text" id="city" name="city" value="John"><br>
+                <label for="country">Country</label><br>
+                <input type="text" id="country" name="country" value="Surf"><br><br>
+                <label for="lat">Latitude:</label><br>
+                <input type="text" id="lat" name="lat" value="Indie"><br><br>
+                <label for="lng">Longitude:</label><br>
+                <input type="text" id="lng" name="lng" value="12321"><br><br>
+               
+              </form> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="addsong()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- OVDJE IDE MODAL ZA UREĐIVANJE PJESAMA -->
+      <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/action_page.php">
+                <label for="autor">Autor:</label><br>
+                <input type="text" id="autorup" name="autor" value="John"><br>
+                <label for="song">Title:</label><br>
+                <input type="text" id="songup" name="song" value="Surf"><br><br>
+                <label for="genre">Genre:</label><br>
+                <input type="text" id="genreup" name="genre" value="Indie"><br><br>
+                <label for="duration">Duljina:</label><br>
+                <input type="text" id="durationup" name="duration" value="12321"><br><br>
+               
+              </form> 
+            </div>
+            <div class="modal-footer">
+         
+              <button type="button" id="btnupdatesave"class="btn btn-primary" data-dismiss="modal">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="assets/plugins/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/plugins/bootstrap-4.6.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="js/firebase_config.js"></script>
+    <script src="js/administracija.js"></script>
+  </body>
+</html>
