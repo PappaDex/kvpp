@@ -19,3 +19,4 @@ firebase.initializeApp(cityConfig);
 // Kreiranje objekta Firebase baze
 var oDb = firebase.database();
 var oDbcitya = oDb.ref('cities');
+var oDbusera= oDb.ref('users');

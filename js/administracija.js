@@ -1,17 +1,22 @@
 oDbcitya.on('value', function (oOdgovorPosluzitelja)
 {
+    var oSelectFrom=$('#select');
+    var oSelectTo=$('#selectto')
  var oTablicaPjesme=$('#citytbody')
  oTablicaPjesme.empty();
  var RedBroj=1;
- // petlja kroz pojedinu vijest
+
  oOdgovorPosluzitelja.forEach(function (oCitySnapshot)
  {
 
- var oCityKey = oCitySnapshot.key; // ključ pojedine vijesti
- var oCity = oCitySnapshot.val(); // svojstva vijesti Javascript objekt obliku
+ var oCityKey = oCitySnapshot.key; 
+ var oCity = oCitySnapshot.val();
 
  oTablicaPjesme.append('<tr><td id="'+RedBroj+'">'+RedBroj+'</td><td>'+oCity.city+'</td><td>'+oCity.country+'</td><td>'+oCity.lat+'</td><td>'+oCity.lng+'</td><td><button id="btnupdate" onClick="updatesong(\''+oCityKey+'\')" type="button" class="btn btn-dark">Update</button> </td><td><button type="button" id="btndel" onClick="deletesong(\''+oCityKey+'\')" class="btn btn-dark">Delete</button> </td></tr>');
-RedBroj=RedBroj+1;
+ oSelectFrom.append('<option value="'+RedBroj+'">'+oCity.city+'</option')
+ oSelectTo.append('<option value="'+RedBroj+'">'+oCity.city+'</option')
+
+ RedBroj=RedBroj+1;
  });
 });
 function addsong() {
@@ -24,10 +29,10 @@ function addsong() {
     var sKey = firebase.database().ref().child('cities').push().key;
     var oCity =
     {
-        name:sCityName,
+        city:sCityName,
         country:sCountry,
-        longitude:sLng,
-        latitude:sLat,
+        lat:sLat,
+        lng:sLng,
     
     
     };
@@ -43,10 +48,10 @@ function updatesong(oCityKey)
     {
     var oCity = oOdgovorPosluzitelja.val();
     // Popunjavanje elemenata forme za uređivanje
-    $('#songup').val(oCity.longitude);
-    $('#autorup').val(oCity.name);
-    $('#countryup').val(oCity.country);
-    $('#latitudeup').val(oCity.latitude);
+    $('#lat2').val(oCity.lat);
+    $('#city2').val(oCity.city);
+    $('#country2').val(oCity.country);
+    $('#lng2').val(oCity.lng);
     // Dodavanje događaja na gumb Ažuriraj  
     $('#btnupdatesave').attr('onclick',
     'SaveEditedCity("'+oCityKey+'")');
@@ -63,16 +68,16 @@ function deletesong(oCityKey)
 function SaveEditedCity(oCityKey)
 {
 var oCityRef = oDb.ref('cities/' + oCityKey);
-var sCitylongitude = $('#songup').val();
-var sCityName = $('#autorup').val();
-var sCitycountry= $('#countryup').val();
-var sCitylatitude = $('#latitudeup').val();
+var sCitylongitude = $('#lng2').val();
+var sCityName = $('#city2').val();
+var sCitycountry= $('#country2').val();
+var sCitylatitude = $('#lat2').val();
 var oCity =
 {
-    name:sCityName,
+    city:sCityName,
     country:sCitycountry,
-    latitude:sCitylatitude,
-    longitude:sCitylongitude
+    lat:sCitylatitude,
+    lng:sCitylongitude
 };
 oCityRef.update(oCity);
 }

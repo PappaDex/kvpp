@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="assets/plugins/bootstrap-4.6.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/plugins/fontawesome-free-5.15.4-web/css/all.min.css">
-    <title>OWP - LV5</title>
+    <title>KVPP</title>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FC7A57;">
-        <a class="navbar-brand" href="index.html"><img src="img/vsmti_logo.png"></a>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #47b0e0;">
+        <a class="navbar-brand" href="index.html"><img src="img/pplog.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Administracija</a>
+              <a class="nav-link" href="index.html">Putnicki Prijevoz</a>
             </li>
           </ul>
         </div>
@@ -29,7 +29,7 @@
     <div class="container">
       <!-- OVDJE IDE GUMB KOJI OTVARA MODAL ZA DODAVANJE PJESAMA -->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addmodal">
   Add City
 </button>
 
@@ -52,8 +52,8 @@
         </tbody>
       </table>
       
-      <!-- OVDJE IDE MODAL ZA DODAVANJE PJESAMA -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+      <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -65,24 +65,24 @@
             <div class="modal-body">
               <form action="/action_page.php">
                 <label for="city">Name:</label><br>
-                <input type="text" id="city" name="city" value="John"><br>
+                <input type="text" id="city" name="city" value="City"><br>
                 <label for="country">Country</label><br>
-                <input type="text" id="country" name="country" value="Surf"><br><br>
+                <input type="text" id="country" name="country" value="Country"><br><br>
                 <label for="lat">Latitude:</label><br>
-                <input type="text" id="lat" name="lat" value="Indie"><br><br>
+                <input type="text" id="lat" name="lat" value="12.3"><br><br>
                 <label for="lng">Longitude:</label><br>
-                <input type="text" id="lng" name="lng" value="12321"><br><br>
+                <input type="text" id="lng" name="lng" value="31.1"><br><br>
                
               </form> 
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="addsong()">Save changes</button>
+              <button type="button" class="btn btn-primary" onclick="addsong()">Add</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- OVDJE IDE MODAL ZA UREĐIVANJE PJESAMA -->
+
       <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -94,14 +94,14 @@
             </div>
             <div class="modal-body">
               <form action="/action_page.php">
-                <label for="autor">Autor:</label><br>
-                <input type="text" id="autorup" name="autor" value="John"><br>
-                <label for="song">Title:</label><br>
-                <input type="text" id="songup" name="song" value="Surf"><br><br>
-                <label for="genre">Genre:</label><br>
-                <input type="text" id="genreup" name="genre" value="Indie"><br><br>
-                <label for="duration">Duljina:</label><br>
-                <input type="text" id="durationup" name="duration" value="12321"><br><br>
+                <label for="city">Name:</label><br>
+                <input type="text" id="city2" name="city" value="City"><br>
+                <label for="country">Country:</label><br>
+                <input type="text" id="country2" name="country" value="Country"><br><br>
+                <label for="lat">Latitude:</label><br>
+                <input type="text" id="lat2" name="lat" value="12.3"><br><br>
+                <label for="lng">Longitude:</label><br>
+                <input type="text" id="lng2" name="lng" value="31.1"><br><br>
                
               </form> 
             </div>
